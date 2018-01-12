@@ -1,1 +1,1 @@
-gunicorn -w 10 index:app 
+gunicorn -w 10 main:app 
