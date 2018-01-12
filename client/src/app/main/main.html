@@ -1,0 +1,39 @@
+<div class="container is-fluid">
+
+  <nav class="navbar is-primary">
+    <div class="navbar-brand">
+      <a href="#" class="navbar-item logo">
+        <h2  href="#">
+            POSify
+        </h2>
+      </a>
+    </div>
+  </nav>
+  <br>
+  <div class="field">
+    <label class="label has-text-centered" >
+      ENTER SOME TEXT BLOG
+    </label>
+    <div class="control">
+      <textarea class="textarea" placeholder="Enter Some Text" rows="15" ng-model="obj.query"></textarea>
+    </div>
+  </div>
+  <div class="has-text-centered ">
+    <a class="button is-info is-large " ng-class="{'is-loading':obj.load}" ng-click="funcs.generatePos()">
+      Generate
+    </a>
+  </div>
+  <div class="has-text-centered">
+    <hr>
+      <span ng-repeat="poss in obj.posColor" >
+        <span style="border-radius 50px; -moz-border-radius 50px; -webkit-border-radius 50px; min-width: 20px; height: 20px; background: {{poss.color}};">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span ng-bind="poss.name+' '" class="mar-r-30px boldWeight"></span>
+      </span>
+    <hr>
+      <br><br>
+      <div >
+        <h1>PARTS OF SPEECH BREAKAGE</h1>
+        <div ng-bind-html="obj.html"></div>
+      </div>
+  </div>
+</div>

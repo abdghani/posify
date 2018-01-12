@@ -1,0 +1,21 @@
+.logo{
+  color: black ;
+  word-spacing: 20px;
+  font-size: 40px;
+  margin-left: 30px;
+}
+circle {
+  position: relative;
+  background-color: #09f;
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 200px;
+}
+.mar-r-30px{
+  margin-right: 30px
+}
+
+.boldWeight{
+  font-weight: bold
+}
