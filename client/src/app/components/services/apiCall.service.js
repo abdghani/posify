@@ -38,6 +38,7 @@
       },
       httpGetWord: function(word, callback) {
         var url = {
+          method: 'GET',
           url: oxfordUrl + word,
           headers: oxfordHeader,
         }

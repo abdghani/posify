@@ -15,8 +15,9 @@
       ENTER SOME TEXT BLOG
     </label>
     <div class="control">
-      <textarea class="textarea" placeholder="Enter Some Text" rows="15" ng-model="obj.query" ng-maxlength=1000></textarea>
+      <textarea class="textarea" placeholder="Enter Some Text" rows="25 " ng-model="obj.query" ng-maxlength=1000></textarea>
     </div>
+    <span class="wordCount has-text-right" ng-bind="obj.query.split(' ').length+' WORDS'" ng-if="obj.query.split(' ').length!=1"></span>
   </div>
   <div class="has-text-centered ">
     <a class="button is-primary is-large " ng-class="{'is-loading':obj.load}" ng-click="funcs.generatePos()" ng-disabled="obj.query.length==0">
@@ -27,17 +28,45 @@
       Generate Random Text
     </a>
   </div>
-  <div class="has-text-centered">
+  <div class="has-text-centered" ng-if="obj.resultCame && obj.query.length>0">
     <hr>
       <span ng-repeat="poss in obj.posColor" >
         <span style=" border:0.1px solid ; border-radius 50px;  min-width: 20px; height: 20px; background: {{poss.color}};">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span ng-bind="poss.name+' '" class="mar-r-30px boldWeight"></span>
+        <span ng-bind="poss.name+' '" class="mar-r-30px boldWeight" ng-if="poss.count==0"></span>
+        <span ng-bind="poss.name+' ('+poss.count+')'" class="mar-r-10px boldWeight" ng-if="poss.count!=0"></span>
       </span>
     <hr>
       <br><br>
-      <div >
-        <h1>PARTS OF SPEECH BREAKAGE</h1>
+      <div>
+        <p class="headr">PARTS OF SPEECH </p>
         <div ng-bind-html="obj.html"></div>
+        <br>
+      </div>
+      <hr>
+      <div class="columns">
+        <div class="column" >
+          <p class="headr">POS CHART</p>
+          <div google-chart chart="posDist" style="height:600px; width:100%;"></div>
+        </div>
+        <hr>
+        <div class="column">
+          <p class="headr">SENTIMENT</p>
+          <div google-chart chart="sentimentDist" style="height:600px; width:100%;"></div>
+        </div>
+      </div>
+      <p class="headr">TRANSLATION </p>
+      <div class="tabs is-centered is-boxed is-medium">
+          <ul>
+            <li ng-repeat="l in obj.languages" ng-class="{'is-active':l.code==obj.seletedlanguage.code}"><a ng-bind="l.name" ng-click="funcs.changeTranslated(l)"></a></li>
+          </ul>
+      </div>
+      <div class="field">
+        <label class="label has-text-centered" >
+          Translation in {{obj.seletedlanguage.name}}
+        </label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Translation" rows="25 " ng-model="obj.transaltedLanguage"></textarea>
+        </div>
       </div>
   </div>
 </div>

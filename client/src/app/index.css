@@ -12,10 +12,25 @@ circle {
   height: 40px;
   border-radius: 200px;
 }
+.mar-r-10px{
+  margin-right: 10px
+}
 .mar-r-30px{
   margin-right: 30px
 }
 
 .boldWeight{
   font-weight: bold
+}
+
+.headr {
+  font-size: 40px;
+  font-weight: 10px;
+}
+
+.wordCount {
+  background-color: yellow !important;
+  font-size: 12px;
+  float:right;
+  margin-top: 10px
 }

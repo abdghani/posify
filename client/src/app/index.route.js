@@ -18,7 +18,6 @@
           }
         }
       });
-
     $urlRouterProvider.otherwise('/pos');
   }
 
