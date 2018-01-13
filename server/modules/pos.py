@@ -1,10 +1,10 @@
 import nltk
+import requests
 from nltk.tokenize import sent_tokenize,word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from bs4 import BeautifulSoup
-import requests
-
+from textblob import TextBlob
 
 def generatePos(payload):
     return nltk.pos_tag(word_tokenize(payload))
@@ -18,3 +18,14 @@ def getRandomText():
     soup = BeautifulSoup(r.text)
     text = soup.find('textarea',{'id':'generatedtext'});
     return (text.getText())
+
+def getSentiment(payload):
+    xstr = TextBlob(payload)
+    return xstr.sentiment
+
+def getTransaltion(payload,lang):
+    xstr = TextBlob(payload)
+    print(xstr.translate(to=lang))
+    return {"translated":str(xstr.translate(to=lang))}
+
+getSentiment("I have been trying for a long time. hello world! word")
