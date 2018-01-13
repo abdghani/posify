@@ -21,6 +21,16 @@ def getPos():
         postags = pos.generatePos(body['query']);
         return util.makeResponse(postags)
 
+# @app.route('/api/wordcount',methods=['POST'])
+# def getCount():
+#     body =json.loads(request.data)
+#     if(body['query'] and len(body['query'])>0):
+#         return util.makeResponse(pos.wordCount(postags));
+
+@app.route('/api/randomtext')
+def getRandom():
+    return pos.getRandomText()
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=3020,debug=True)
