@@ -8,6 +8,7 @@
   /** @ngInject */
   function ajaxCall($log, $http) {
     var baseurl = "http://api.posify.greyphase.xyz";
+    // var baseurl = "http://localhost:3020";
     var oxfordHeader = {
       "app_id": "4e3d8d18",
       "app_key": "cc0f84370e8cbba9f4ef3adc62b47e4b"

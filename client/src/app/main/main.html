@@ -15,12 +15,15 @@
       ENTER SOME TEXT BLOG
     </label>
     <div class="control">
-      <textarea class="textarea" placeholder="Enter Some Text" rows="15" ng-model="obj.query"></textarea>
+      <textarea class="textarea" placeholder="Enter Some Text" rows="15" ng-model="obj.query" ng-maxlength=1000></textarea>
     </div>
   </div>
   <div class="has-text-centered ">
-    <a class="button is-info is-large " ng-class="{'is-loading':obj.load}" ng-click="funcs.generatePos()">
-      Generate
+    <a class="button is-primary is-large " ng-class="{'is-loading':obj.load}" ng-click="funcs.generatePos()" ng-disabled="obj.query.length==0">
+      Run POS tagging
+    </a>
+    <a class="button is-primary is-large " ng-class="{'is-loading':obj.loadtext}" ng-click="funcs.generateRandomText()" >
+      Generate Random Text
     </a>
   </div>
   <div class="has-text-centered">

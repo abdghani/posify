@@ -11,6 +11,7 @@
     $scope.obj.query = '';
     $scope.obj.html = '';
     $scope.obj.load = false;
+    $scope.obj.loadtext = false;
     $scope.obj.posColor = [{
       "name": "noun",
       "color": "#e5ff00"
@@ -220,6 +221,15 @@
         query: $scope.obj.query
       }, function(err, res) {
         $scope.funcs.generateHtml(res);
+      })
+    }
+    $scope.funcs.generateRandomText = function() {
+      $scope.obj.loadtext = true;
+      ajaxCall.httpGet('/api/randomtext', function(err, res) {
+        if (!err) {
+          $scope.obj.query = res;
+        }
+        $scope.obj.loadtext = false;
       })
     }
     $scope.funcs.generateHtml = function(data) {
