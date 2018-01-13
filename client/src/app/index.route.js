@@ -19,7 +19,7 @@
         }
       });
 
-    $urlRouterProvider.otherwise('/`pos');
+    $urlRouterProvider.otherwise('/pos');
   }
 
 })();
