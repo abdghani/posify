@@ -28,4 +28,3 @@ def getTransaltion(payload,lang):
     print(xstr.translate(to=lang))
     return {"translated":str(xstr.translate(to=lang))}
 
-getSentiment("I have been trying for a long time. hello world! word")
