@@ -17,7 +17,7 @@ def getRandomText():
     r  = requests.get(url)
     soup = BeautifulSoup(r.text)
     text = soup.find('textarea',{'id':'generatedtext'});
-    return (text.getText())
+    return str(text.getText())
 
 def getSentiment(payload):
     xstr = TextBlob(payload)
